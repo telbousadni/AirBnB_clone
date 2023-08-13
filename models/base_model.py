@@ -7,7 +7,7 @@ from uuid import uuid4
 import models
 
 
-class Basemodel():
+class BaseModel():
     """
     a class BaseModel that defines all common
     attributes/methods for other classes
