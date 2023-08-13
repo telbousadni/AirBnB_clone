@@ -1,17 +1,19 @@
 #!usr/bin/python3
-
+"""
+from Module : base.py
+"""
 from datetime import datetime
 from uuid import uuid4
 import models
 
-class Basemodel():
 
+class Basemodel():
     """
     a class BaseModel that defines all common
     attributes/methods for other classes
     """
-    def __init__(self):
-       
+
+    def __init__(self):   
     """
     Instantation
     """
@@ -20,7 +22,6 @@ class Basemodel():
         self.updated_at = datetime.now()
     
     def __str__(self):
-
         """
         should print: [<class name>] (<self.id>)
         <self.__dict__>
