@@ -8,12 +8,8 @@ import models
 
 
 class BaseModel:
-    """
-    a class BaseModel that defines all common
-    attributes/methods for other classes
-    """
-
-    def __init__(self):
+    """defines all common attributes/methods for other classes """
+    def __init__(self, *args, **kwargs):
         """
         Instantation
         """
@@ -21,7 +17,15 @@ class BaseModel:
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
-        models.storage.new(self)
+         if kwargs:
+            for key, value in kwargs.items():
+                if key in ["created_at", "updated_at"]:
+                    self.__dict__[key] = datetime.strptime(
+                        value, "%Y-%m-%dT%H:%M:%S.%f")
+                elif key != "__class__":
+                    self.__dict__[key] = value
+        else:
+            models.storage.new(self)
 
     def __str__(self):
         """
@@ -44,9 +48,9 @@ class BaseModel:
         returns a dictionary containing all
         keys/values of __dict__ of the instance
         """
-        dict = self.__dict__
-        dict['__class__'] = self.__class__.name
-        dict['created_at'] = dict['created_at'].isoformat()
-        dict['updated_at'] = dict['updated_at'].isoformat()
+        adict = (dict)self.__dict__
+        adict["__class__"] = self.__class__.name
+        adict["created_at"] = adict['created_at'].isoformat()
+        adict["updated_at"] = adict['updated_at'].isoformat()
 
-        return dict
+        return adict
