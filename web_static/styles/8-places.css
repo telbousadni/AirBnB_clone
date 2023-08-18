@@ -7,7 +7,7 @@
     font-size: 30px;
 }
 .places_title{
-    padding-top: 30px;
+    padding: 30px;
     margin-bottom: -25px;
 }
 .articles{
@@ -17,7 +17,8 @@
 }
 article{
 	width: 390px;
-    margin: 20px;
+	height:350px;
+    margin: 24px;
     padding: 20px;
     border: solid #FF5A5F 1px;
     border-radius: 4px;
@@ -56,7 +57,7 @@ article h2{
 {
 	margin-top:30px;
 }
-.iconc
+.information
 {
 	height:80px;
     border-top: solid #DDDDDD 1px;
@@ -115,21 +116,22 @@ article h2{
     margin-left: 35px;
 }
 
-.iconc h2
+.information h2
 {
 	font-size: 14px;
     color:  #484848;
     font-weight: normal;
 }
 
-.username{
+.user{
     font-size: 14px;
     color: #484848;
     margin-top: 15px;
+	text-align: left;
+	align-self: flex-start;
 }
-.info{
+.description{
     font-size: 14px;
     text-align: left;
     margin-top: 7px;
-	text-justify:inherit;
 }
